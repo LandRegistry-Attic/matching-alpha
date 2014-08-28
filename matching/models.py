@@ -8,7 +8,7 @@ class User(db.Model):
 
     __tablename__ = 'users'
 
-    id = db.Column(UUID(as_uuid=True), nullable=False, primary_key=True)
+    lrid = db.Column(UUID(as_uuid=True), nullable=False, primary_key=True)
     first_name = db.Column(db.String(255), nullable=False)
     last_name = db.Column(db.String(255), nullable=False)
     date_of_birth = db.Column(db.Date(), nullable=False)

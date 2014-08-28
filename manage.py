@@ -17,13 +17,12 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 @manager.option('--lrid', dest='lrid')
-@manager.option('--first_name', dest='first_name')
-@manager.option('--last_name', dest='last_name')
+@manager.option('--name', dest='name')
 @manager.option('--dob', dest='dob')
 @manager.option('--gender', dest='gender')
 @manager.option('--current_address', dest='current_address')
 @manager.option('--previous_address', dest='previous_address')
-def create_user(lrid, first_name, last_name, dob, gender, current_address,previous_address):
+def create_user(lrid, name, dob, gender, current_address,previous_address):
 
     import datetime
     import uuid
@@ -33,8 +32,7 @@ def create_user(lrid, first_name, last_name, dob, gender, current_address,previo
         date_of_birth = datetime.datetime.strptime(dob, '%Y-%M-%d')
 
         user = User(lrid=lrid,
-                    first_name=first_name,
-                    last_name=last_name,
+                    name=name,
                     date_of_birth=date_of_birth,
                     gender=gender,
                     current_address=current_address,

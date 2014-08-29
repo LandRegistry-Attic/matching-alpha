@@ -29,7 +29,7 @@ def create_user(lrid, name, dob, gender, current_address,previous_address):
     lrid = uuid.UUID(lrid)
 
     if not User.query.get(lrid):
-        date_of_birth = datetime.datetime.strptime(dob, '%Y-%M-%d')
+        date_of_birth = datetime.datetime.strptime(dob, '%Y-%m-%d')
 
         user = User(lrid=lrid,
                     name=name,

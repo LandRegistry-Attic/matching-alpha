@@ -15,3 +15,14 @@ class User(db.Model):
     current_address = db.Column(TEXT, nullable=False)
     previous_address = db.Column(TEXT, nullable=False)
 
+
+    def __repr__(self):
+        return str({
+            'lrid': self.lrid,
+            'name': self.name,
+            'date of birth': self.date_of_birth,
+            'gender': self.gender,
+            'current address': self.current_address,
+            'previous address': self.previous_address
+        })
+

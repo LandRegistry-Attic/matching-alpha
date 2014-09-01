@@ -40,7 +40,7 @@ class MatchingTestCase(unittest.TestCase):
             self.assertEquals(expected.data, response.data)
 
     @mock.patch('matching.server._match_user', return_value=None)
-    def test_if_user_not_matched_return(self, mock_match):
+    def test_if_user_not_matched_return_404(self, mock_match):
         with self.app.test_request_context():
             data = json.dumps(user_data)
             response = self.client.post('/match', data=data, content_type='application/json')

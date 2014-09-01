@@ -20,7 +20,6 @@ def match():
     user = _match_user(**request.get_json())
     if user:
        return jsonify({"lrid": str(user.lrid)})
-
     else:
         return Response(json.dumps({"status": "not found"}), status = 404, mimetype='application/json')
 

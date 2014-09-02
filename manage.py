@@ -16,6 +16,28 @@ manager = Manager(app)
 
 manager.add_command('db', MigrateCommand)
 
+@manager.option('--name', dest='name')
+def create_role(name):
+    if not Role.query.filter_by(name=name).first():
+        role = Role(name=name)
+        db.session.add(role)
+        db.session.commit()
+
+@manager.option('--userlrid', dest='userlrid')
+@manager.option('--rolename', dest='rolename')
+def add_role_to_user(userlrid, rolename):
+    role = Role.query.filter_by(name=rolename).first()
+    if not role:
+        print "Couldn't find role", rolename
+        return
+    user = User.query.get(userlrid)
+    if not user:
+        print "Couldn't find user with lrid", lrid
+        return
+    user.roles.append(role)
+    db.session.add(user)
+    db.session.commit()
+
 @manager.option('--lrid', dest='lrid')
 @manager.option('--name', dest='name')
 @manager.option('--dob', dest='dob')
@@ -23,7 +45,6 @@ manager.add_command('db', MigrateCommand)
 @manager.option('--current_address', dest='current_address')
 @manager.option('--previous_address', dest='previous_address')
 def create_user(lrid, name, dob, gender, current_address,previous_address):
-
     import datetime
     import uuid
     lrid = uuid.UUID(lrid)

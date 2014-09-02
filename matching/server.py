@@ -7,8 +7,6 @@ from flask import request
 from flask import Response
 from flask import jsonify
 
-from sqlalchemy.orm import joinedload
-
 from matching import app
 from matching.models import User
 
@@ -33,7 +31,7 @@ def _match_user(**kwargs):
     current_address = kwargs['current_address']
     previous_address = kwargs['previous_address']
 
-    user = User.query.options(joinedload(User.roles)).filter_by(name=name, gender=gender, current_address=current_address, previous_address=previous_address, date_of_birth=date_of_birth).first()
+    user = User.query.filter_by(name=name, gender=gender, current_address=current_address, previous_address=previous_address, date_of_birth=date_of_birth).first()
 
-    current_app.logger.info('\n\n\n\n\n\nMatched user %s\n\n\n\n\n\n' % user)
+    current_app.logger.info('Matched user %s' % user)
     return user

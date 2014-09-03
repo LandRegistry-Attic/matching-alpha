@@ -19,7 +19,8 @@ def match():
     current_app.logger.info("Match requested for %s" % request.get_json())
     user = _match_user(**request.get_json())
     if user:
-       return jsonify({"lrid": str(user.lrid)})
+        user_roles = [item.name for item in user.roles]
+        return jsonify({"lrid": str(user.lrid), "roles": user_roles})
     else:
         return Response(json.dumps({"status": "not found"}), status = 404, mimetype='application/json')
 

@@ -1,6 +1,7 @@
 import json
 import datetime
 import uuid
+import logging
 
 from flask import current_app
 from flask import request
@@ -9,6 +10,12 @@ from flask import jsonify
 
 from matching import app
 from matching.models import User
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.addHandler(logging.StreamHandler())
+
+app.logger.info("\nConfiguration\n%s\n" % app.config)
 
 @app.route('/')
 def index():

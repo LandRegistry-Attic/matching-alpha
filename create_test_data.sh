@@ -4,6 +4,8 @@ source /vagrant/script/dev-env-functions
 source ./environment.sh
 create_virtual_env "matching"
 
+export SETTINGS='config.DevelopmentConfig'
+
 python manage.py create_role --name 'CITIZEN'
 python manage.py create_role --name 'CONVEYANCER'
 

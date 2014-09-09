@@ -10,7 +10,6 @@ env:
 script:
 - source ./environment_test.sh
 - /home/travis/build/LandRegistry/matching/db/create_database.sh
-- APP_ROOT=/home/travis/build/LandRegistry/matching /home/travis/build/LandRegistry/matching/db/upgrade_database.sh
 - py.test --cov matching tests/ --cov-report=term --cov-report=html
 after_success:
 - coveralls

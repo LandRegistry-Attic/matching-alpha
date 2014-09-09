@@ -9,6 +9,7 @@ env:
 - SETTINGS='config.TestConfig'
 script:
 - pwd
+- ls
 - /home/travis/build/LandRegistry/matching/db/create-database.sh
 - APP_ROOT=/home/travis/build/LandRegistry/matching /home/travis/build/LandRegistry/matching/db/upgrade-database.sh
 - source ./environment_test.sh

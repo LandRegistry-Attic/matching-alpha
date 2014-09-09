@@ -8,6 +8,9 @@ install:
 env:
 - SETTINGS='config.TestConfig'
 script:
+- pwd
+- ./db/create-database.sh
+- ./db/upgrade-database.sh
 - source ./environment_test.sh
 - py.test --cov matching tests/ --cov-report=term --cov-report=html
 after_success:

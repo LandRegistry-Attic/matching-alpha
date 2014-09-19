@@ -1,5 +1,6 @@
 from sqlalchemy.dialects.postgresql import TEXT
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import BOOLEAN
 from sqlalchemy.types import Enum
 
 
@@ -37,6 +38,7 @@ class User(db.Model):
     previous_address = db.Column(TEXT, nullable=False)
     roles = db.relationship('Role', secondary=roles_users,
                             backref=db.backref('users', lazy='dynamic'))
+    blocked = db.Column(BOOLEAN, nullable=False)
 
     def __repr__(self):
         return str({
@@ -46,5 +48,6 @@ class User(db.Model):
             'gender': self.gender,
             'current address': self.current_address,
             'previous address': self.previous_address,
-            'roles': self.roles
+            'roles': self.roles,
+            'blocked': self.blocked
         })

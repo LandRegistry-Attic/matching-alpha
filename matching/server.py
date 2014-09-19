@@ -41,7 +41,8 @@ def _match_user(**kwargs):
     # for the moment so that we can use match for conveyancer/citizen
     # relationship. revisit this when IDA integration done. At that
     # time we may have matches with levels of assurance included?
-    user = User.query.filter_by(name=name, gender=gender, current_address=current_address, date_of_birth=date_of_birth).first()
+    user = User.query.filter_by(name=name, gender=gender, current_address=current_address, date_of_birth=date_of_birth,
+                                blocked=False).first()
 
     current_app.logger.info('Matched user %s' % user)
     return user

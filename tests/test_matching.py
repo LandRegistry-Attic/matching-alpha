@@ -48,3 +48,6 @@ class MatchingTestCase(unittest.TestCase):
             response = self.client.post('/match', data=data, content_type='application/json')
             self.assertEquals(response.status_code, 404)
 
+    def test_health(self):
+        response = self.client.get('/health')
+        self.assertEqual(response.status, '200 OK')

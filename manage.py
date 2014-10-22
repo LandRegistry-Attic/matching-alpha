@@ -65,33 +65,6 @@ def create_user(name, dob, gender, current_address,previous_address):
     else:
         print "User with name %s does exist so choose something else" % name
 
-@manager.option('--lrid', dest='lrid')
-def block_user(lrid):
-    import uuid
-    user_lrid = uuid.UUID(lrid)
-    user = User.query.filter_by(lrid=user_lrid).first()
-    if user:
-        user.blocked = True
-
-        db.session.add(user)
-        db.session.commit()
-        print "User %s has been blocked" % user.name
-    else:
-        print "User does not exist"
-
-@manager.option('--lrid', dest='lrid')
-def unblock_user(lrid):
-    import uuid
-    user_lrid = uuid.UUID(lrid)
-    user = User.query.filter_by(lrid=user_lrid).first()
-    if user:
-        user.blocked = False
-
-        db.session.add(user)
-        db.session.commit()
-        print "User %s has been unblocked" % user.name
-    else:
-        print "User does not exist"
 
 if __name__ == '__main__':
     manager.run()

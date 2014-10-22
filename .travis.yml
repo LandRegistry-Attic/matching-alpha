@@ -13,8 +13,6 @@ script:
 - source ./environment_test.sh
 - "/home/travis/build/LandRegistry/matching/db/create_database.sh"
 - py.test --cov matching tests/ --cov-report=term --cov-report=html
-after_success:
-- coveralls
 deploy:
   provider: heroku
   api_key:

@@ -18,7 +18,7 @@ after_success:
 deploy:
   provider: heroku
   api_key:
-    secure: nfpWUxjf7mqy2E5GQX65ruHFgdMhXlgkUVRQkzuNWMgn0h6ehZ6y7q1sM88Lacq8zqYuC59ggRT5470F4T3hiTv88yMvORvkFmE476DeutOxABZIkCmHIWE+YlTHhF/YYjV3jVopkO2hsqZhaDcIX4mwUR7NHwd+w/1oHr+P/lg=
+    secure: ZRUvKiCNDawAycOB+6WVs0DHzW4vRWneS7b+XQMQAVYSjW6tPvOGvlgu3ldF/SwMuF3gRoFutFFL/wnoY/fLH7lI3BJyb6rYPkTR5MWIFLOS859+CphZWqB5bI4FWDiXSIxBimxXuUADmRUIiybIMD5Z68Gxaedeq09eE+IZ55E=
   app: lr-matching
   on:
     repo: LandRegistry/matching

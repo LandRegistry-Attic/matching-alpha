@@ -11,15 +11,14 @@ env:
 - SETTINGS='config.TestConfig'
 script:
 - source ./environment_test.sh
-- /home/travis/build/LandRegistry/matching/db/create_database.sh
+- "/home/travis/build/LandRegistry/matching/db/create_database.sh"
 - py.test --cov matching tests/ --cov-report=term --cov-report=html
 after_success:
 - coveralls
 deploy:
   provider: heroku
   api_key:
-    secure: B0JvdAfkWzYwPQ7Z+ZObTFXaJgOIZMxaworQrXV8qVfuG6ZHsC35VZk1WOqB7CD8ZErsqgaRBNkQQsaagZAeJ3GKcrBwjohSkNMQnsAjXYci+LbDTM//YlDPNnwbmq/t/mxG6IM1BK2Hph6u1xTXZvTCxMdPQKnl7/jMWFeRabg=
+    secure: nfpWUxjf7mqy2E5GQX65ruHFgdMhXlgkUVRQkzuNWMgn0h6ehZ6y7q1sM88Lacq8zqYuC59ggRT5470F4T3hiTv88yMvORvkFmE476DeutOxABZIkCmHIWE+YlTHhF/YYjV3jVopkO2hsqZhaDcIX4mwUR7NHwd+w/1oHr+P/lg=
   app: lr-matching
   on:
     repo: LandRegistry/matching
-  run: python manage.py db upgrade

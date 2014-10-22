@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/LandRegistry/matching.svg)](https://travis-ci.org/LandRegistry/matching)
+[![Build Status](https://magnum.travis-ci.com/LandRegistry/matching.svg?token=N9pcG7F7VybLxV2xrpVh&branch=master)](https://magnum.travis-ci.com/LandRegistry/matching.svg?token=N9pcG7F7VybLxV2xrpVh&branch=master)
 
 
 Matching service

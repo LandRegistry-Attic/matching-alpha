@@ -4,7 +4,7 @@
 set -e
 
 if [[ $# -ne 5 ]]; then
-    echo "Usage ./create_matching_record.sh 'A Name' DateOfBirth [format = YYYY-MM-DD] gender [M/F] 'Current address' 'Previous address'
+    echo "Usage ./create_matching_record.sh 'A Name' DateOfBirth [format = YYYY-MM-DD] gender [M/F] 'Current address' 'Previous address'"
     exit 1
 fi
 

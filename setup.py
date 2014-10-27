@@ -10,15 +10,13 @@ def requirements():
     with open('./requirements.txt', 'r') as f:
         lines = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
-        install_requires = [line.replace("==", ">=") for line in lines if not line.startswith('-e')]
+        install_requires = [line.strip() for line in lines if not line.startswith('-e')]
 
         dependency_links = [line.replace('-e', '').strip() for line in lines if line.startswith('-e')]
 
         return {'install_requires': install_requires, 'dependency_links': dependency_links}
 
 requirements = requirements()
-
-print "\n\n\n\n\n", requirements['install_requires'], "\n\n\n\n\n"
 
 setup(name='matching',
       version='0.1',

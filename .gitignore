@@ -16,3 +16,6 @@ coverage.xml
 .DS_Store
 # intellij file
 *.iml
+dist/
+*.egg.info
+build/

@@ -1,0 +1,13 @@
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+
+setuid vagrant
+
+script
+    chdir /opt/alpha/matching
+    . bin/activate
+    exec ./bin/gunicorn -c gunicorn_config.py matching.server:app
+end script
+

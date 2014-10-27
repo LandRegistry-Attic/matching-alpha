@@ -1,7 +1,5 @@
 import json
 import datetime
-import uuid
-import logging
 
 from flask import current_app
 from flask import request
@@ -10,12 +8,6 @@ from flask import jsonify
 
 from matching import app
 from matching.models import User
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-logger.addHandler(logging.StreamHandler())
-
-app.logger.info("\nConfiguration\n%s\n" % app.config)
 
 @app.route('/')
 def index():
@@ -43,5 +35,5 @@ def _match_user(**kwargs):
     # time we may have matches with levels of assurance included?
     user = User.query.filter_by(name=name, gender=gender, current_address=current_address, date_of_birth=date_of_birth).first()
 
-    current_app.logger.info('Matched user %s' % user)
+    current_app.logger.debug('Matched user %s' % user)
     return user

@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+echo "Post install"
+
+# set permissions, set env vars?

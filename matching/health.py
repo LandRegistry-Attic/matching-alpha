@@ -1,6 +1,5 @@
 from healthcheck import HealthCheck
 
-
 class Health(object):
     def __init__(self, app, endpoint='/health', checks=[]):
         self.health = HealthCheck(app, endpoint)

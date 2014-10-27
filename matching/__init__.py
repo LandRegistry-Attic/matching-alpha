@@ -1,11 +1,20 @@
+import os
+import logging
+
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
-import os
+
 from .health import Health
 
 app = Flask(__name__)
 
 app.config.from_object(os.environ.get('SETTINGS'))
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.addHandler(logging.StreamHandler())
+
+app.logger.debug("\nConfiguration\n%s\n" % app.config)
 
 
 def health(self):

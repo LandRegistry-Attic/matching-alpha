@@ -8,6 +8,7 @@ setuid vagrant
 script
     chdir /opt/alpha/matching
     . bin/activate
+    . ./environment.sh
     exec ./bin/gunicorn -c gunicorn_config.py matching.server:app
 end script
 

@@ -17,6 +17,6 @@ coverage.xml
 # intellij file
 *.iml
 dist/
-*.egg.info/
+*.egg-info/
 build/
 *.deb

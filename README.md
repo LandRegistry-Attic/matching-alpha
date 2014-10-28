@@ -15,6 +15,21 @@ Locally:
 /create_matching_record.sh 'A Name' DateOfBirth [format = YYYY-MM-DD] gender [M/F] 'Current address' 'Previous address'
 ```
 
+### Environment variables needed for this appication
+
+For local development
+```
+SETTINGS='config.DevelopmentConfig'
+DATABASE_URL='postgresql://localhost/matching'
+```
+Note in local dev port is assigned by dev env scripts
+
+For production
+```
+PORT=[SOME NUMBER]
+SETTINGS='config.Config'
+DATABASE_URL='postgresql://user:password@db_host:port:db_name'
+```
 
 ### To build an installer package
 

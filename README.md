@@ -76,7 +76,7 @@ The result of running ./build.sh is debian package will be created in packaging 
 
 **Before installing in a production box you should:**
 
-* Set the environment variables as listed in environnment.sh 
+* Set the environment variables as listed in environnment.sh **(put the file into the package install dir)**
 * Create a no login user account that the matching service be owned and run as (at the moment in a dev vagrant it runs as root)
 
 ##### To install the debian package
@@ -101,7 +101,7 @@ sudo dpkg -r matching
 
 ##### Database migrations
 
-At the moment the migration version files and manage.py are included in packages and live in installation directory. I would for the moment run these manually after install and before running the service.
+At the moment the migration version files and manage.py are included in packages and live in installation directory. I would for the moment run these after the install (and under control of configuration management tool) before running the service.
 
 ```
 cd /opt/alpha/matching

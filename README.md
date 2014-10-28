@@ -38,11 +38,11 @@ DATABASE_URL='postgresql://user:password@db_host:port:db_name'
 The machine that is being used to build this packages should have the following packages
 
 * python
-* pip 
-* virtualenv
-* virtualenv-tools
+* [pip](http://pip.readthedocs.org/en/latest/installing.html) 
+* [virtualenv](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#installation)
+* virtualenv-tools (```sudo pip install virtualenv-tools```)
 * ruby
-* [fpm](https://github.com/jordansissel/fpm)
+* [fpm](https://github.com/jordansissel/fpm) (```sudo gem install fpm```)
 
 
 ##### Create Python package

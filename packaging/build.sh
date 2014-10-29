@@ -36,7 +36,6 @@ build/$INSTALL_DIR/bin/pip uninstall -y distribute
 
 #copy over migration dir and manage.py script into base dir
 cp -a ../migrations build/$INSTALL_DIR/
-cp ../alembic.ini build/$INSTALL_DIR/
 cp ../manage.py build/$INSTALL_DIR/
 
 # copy gunicorn config for runing of app
@@ -47,22 +46,20 @@ cd build/$INSTALL_DIR
 virtualenv-tools --update-path /$INSTALL_DIR
 cd -
 
-# copy over debian and upstart files
-cp -a debian/* build
 cd build
 
 # build the deb package from the virtualenv containing matching and all dependencies
 fpm \
     -t deb -s dir -a all -n matching -v $VERSION \
-    --after-install postinst \
-    --after-remove prerm \
+    --after-install ../debian/postinst \
+    --after-remove ../debian/prerm \
     --url https://github.com/LandRegistry/matching \
-    --deb-upstart matching \
-    --prefix / \
+    --deb-upstart ../upstart/matching \
     -x "*.pyc" \
     -x "*.pyo" \
     --description 'LR Matching service - used as part of GOV.UK Verify' \
     --license 'MIT' \
+    --prefix / \
     .
 
 cd -

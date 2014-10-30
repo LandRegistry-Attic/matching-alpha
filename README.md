@@ -66,7 +66,7 @@ This will create a virtualenv, install matching into that env. Then it will set 
 **Note**
 The packaging of a virtualenv using fpm may soon be much easier depending on [outcome of this](https://github.com/jordansissel/fpm/issues/697)
 
-The result of running ./build.sh is debian package will be created in packaging called matching. The package has a basic upstart config, empty pre and post install and remove scripts. For the moment the installer is set to install to /opt/alpha/matching. Change as required. Also post install does not set ownership or permissions on the installed package.
+The result of running ./build.sh is debian package will be created in packaging called matching_0.1_all.deb. The package has a basic upstart config, empty pre and post install and remove scripts. For the moment the installer is set to install to /opt/alpha/matching. Change as required. Also post install does not set ownership or permissions on the installed package.
 
 **Before installing in a production box you should:**
 

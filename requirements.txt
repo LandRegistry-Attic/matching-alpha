@@ -14,4 +14,4 @@ psycopg2==2.5.4
 raven==5.1.1
 SQLAlchemy==0.9.8
 Werkzeug==0.9.6
--e git+https://github.com/Runscope/healthcheck#egg=healthcheck
+healthcheck==0.2

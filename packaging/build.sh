@@ -9,28 +9,14 @@ cd ../
 python setup.py sdist
 cd -
 
-# if this following part seems a little crazy then let me assure you it is.
-# however I could not get setuptools dependency links and pip to play nice
-# so we have to go through some healthcheck pain
-export TEMP=$(mktemp -d -t external-deps-XXXXX)
-curl -L https://github.com/Runscope/healthcheck/archive/master/master.tar.gz -o $TEMP/master.tar.gz
-tar -xvf $TEMP/master.tar.gz -C $TEMP
-
-cd $TEMP/healthcheck-master
-python setup.py sdist
-cd -
-# end a bit of healthcheck craziness
-# better solution is to get packages from pypi
-
 # make a virtualenv to install matching and healtcheck distribution packages
 mkdir -p build/$INSTALL_DIR
 virtualenv build/$INSTALL_DIR
 
 build/$INSTALL_DIR/bin/pip install -U pip distribute
 
-# install matching and healtcheck package to virtualenv
+# install matching package to virtualenv
 build/$INSTALL_DIR/bin/pip install ../dist/*
-build/$INSTALL_DIR/bin/pip install $TEMP/healthcheck-master/dist/*
 
 build/$INSTALL_DIR/bin/pip uninstall -y distribute
 
@@ -70,6 +56,5 @@ rm -rf build
 cd ../
 rm -rf dist
 rm -rf *.egg-info
-rm -rf $TEMP
 
 # upload the deb to apt repo

@@ -33,12 +33,12 @@ DATABASE_URL='postgresql://user:password@db_host:port:db_name'
 
 ### To build an installer package
 
-#### Prerequisites 
+#### Prerequisites
 
 The machine that is being used to build this packages should have the following packages
 
 * python
-* [pip](http://pip.readthedocs.org/en/latest/installing.html) 
+* [pip](http://pip.readthedocs.org/en/latest/installing.html)
 * [virtualenv](http://virtualenv.readthedocs.org/en/latest/virtualenv.html#installation)
 * virtualenv-tools (```sudo pip install virtualenv-tools```)
 * ruby
@@ -63,14 +63,8 @@ cd packaging
 
 This will create a virtualenv, install matching into that env. Then it will set virtualenv paths to match the eventual installation directory of the debian package that is the output of build.sh.
 
-**Note** 
+**Note**
 The packaging of a virtualenv using fpm may soon be much easier depending on [outcome of this](https://github.com/jordansissel/fpm/issues/697)
-
-An oddity of build.sh is that it needs to download a package that is listed in requirements, build it locally and install to the matching virtualenv as well.
-
-The reason for this is that pip and setup.py dependency_links do not seem to play well. The package in question is [healthcheck](https://github.com/runscope/healthcheck). 
-
-I will create a pull request with the maintainers of that package so that the package can be uploaded to pypi and this part of the script can be removed.
 
 The result of running ./build.sh is debian package will be created in packaging called matching. The package has a basic upstart config, empty pre and post install and remove scripts. For the moment the installer is set to install to /opt/alpha/matching. Change as required. Also post install does not set ownership or permissions on the installed package.
 
@@ -83,7 +77,7 @@ The result of running ./build.sh is debian package will be created in packaging 
 
 ```
 sudo dpkg -i matching_0.1_all.deb
-``` 
+```
 
 Then run
 

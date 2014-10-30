@@ -9,7 +9,7 @@ cd ../
 python setup.py sdist
 cd -
 
-# make a virtualenv to install matching and healtcheck distribution packages
+# make a virtualenv to install matching distribution package
 mkdir -p build/$INSTALL_DIR
 virtualenv build/$INSTALL_DIR
 
@@ -57,4 +57,4 @@ cd ../
 rm -rf dist
 rm -rf *.egg-info
 
-# upload the deb to apt repo
+# upload the deb to internal apt repo

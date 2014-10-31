@@ -10,6 +10,9 @@ app = Flask(__name__)
 
 app.config.from_object(os.environ.get('SETTINGS'))
 
+from werkzeug.contrib.fixers import ProxyFix
+app.wsgi_app = ProxyFix(app.wsgi_app)
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())
